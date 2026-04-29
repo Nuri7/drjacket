@@ -45,7 +45,6 @@ export default function BlogPage() {
               </article>
             ))}
           </div>
-          <p className="text-center text-warm-gray mt-16 font-serif italic text-lg">{t.blog.comingSoon}</p>
         </div>
       </section>
     </>

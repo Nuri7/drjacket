@@ -73,6 +73,25 @@ export default function ContactPage() {
               <div className="rounded-2xl overflow-hidden border border-cognac/10 aspect-[4/3]">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.2!2d4.8668!3d52.3602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sOvertoom+336%2C+Amsterdam!5e0!3m2!1snl!2snl!4v1" width="100%" height="100%" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="DrJacket Atelier Location" />
               </div>
+
+              {/* International Service */}
+              <div className="glass rounded-2xl p-8">
+                <h3 className="font-serif text-xl font-semibold text-cream mb-4">Internationale Klanten</h3>
+                <ul className="space-y-3 text-sm text-warm-gray">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-4 h-4 text-cognac mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582" /></svg>
+                    <span>Wij bedienen klanten uit heel Europa — van München tot Milan, Londen tot Parijs</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-4 h-4 text-cognac mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
+                    <span>Verzending per verzekerde koerier (DHL, FedEx) — wij regelen ophaal en retour</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-4 h-4 text-cognac mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" /></svg>
+                    <span>Remote consultaties per videogesprek mogelijk — ideaal voor eerste kennismaking</span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Contact Form */}
