@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-black-deep: #111111;
+  --color-brown-leather: #2C1F16;
+  --color-cognac: #C38A4F;
+  --color-cognac-light: #D4A76A;
+  --color-burgundy: #5C2C2C;
+  --color-burgundy-light: #7A3B3B;
+  --color-gold: #D4A017;
+  --color-gold-light: #E8B84D;
+  --color-cream: #F8F4EC;
+  --color-cream-dark: #EDE6D6;
+  --color-warm-gray: #8B7D6B;
+  --color-warm-gray-light: #A99E8D;
+  --font-serif: var(--font-playfair, 'Playfair Display'), Georgia, serif;
+  --font-sans: var(--font-inter, 'Inter'), system-ui, sans-serif;
+}
+
+:root {
+  --background: #111111;
+  --foreground: #F8F4EC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Luxury scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cognac);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, var(--color-cognac), var(--color-gold), var(--color-cognac-light), var(--color-cognac));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Fade in animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+
+/* Leather texture overlay */
+.leather-bg {
+  position: relative;
+}
+.leather-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/leather-texture.png');
+  background-size: cover;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(195, 138, 79, 0.15);
+}
+
+.glass-light {
+  background: rgba(248, 244, 236, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(195, 138, 79, 0.1);
+}
+
+/* Gold gradient border */
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, var(--color-cognac), var(--color-gold), var(--color-cognac)) 1;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(195, 138, 79, 0.15);
+}
+
+/* Section divider */
+.section-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-cognac), transparent);
+  margin: 0 auto;
+}
+
+/* Input styles */
+input, textarea, select {
+  font-family: var(--font-sans);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-cognac) !important;
+  box-shadow: 0 0 0 2px rgba(195, 138, 79, 0.2);
+}
