@@ -46,14 +46,19 @@ function Hero() {
   );
 }
 
-/* ─── Pillars (cream section inspired by screenshot 1) ─── */
+/* ─── Pillars — refined SVG icons ─── */
 function Pillars() {
   const { t } = useLanguage();
   const { ref, isInView } = useInView();
+  const icons = [
+    <svg key="clock" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    <svg key="leaf" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9m0-18c-4.97 0-9 4.03-9 9s4.03 9 9 9m0-18v18m4.5-13.5L12 12l-4.5-4.5" /></svg>,
+    <svg key="scissors" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M7.848 8.25l1.536.887M7.848 8.25a3 3 0 11-5.196-3 3 3 0 015.196 3zm9.304 0l-1.536.887M17.152 8.25a3 3 0 105.196-3 3 3 0 00-5.196 3zM12 17.25l-3.616-2.088M12 17.25l3.616-2.088M12 17.25v3" /></svg>,
+  ];
   const pillars = [
-    { icon: '🕰️', value: t.why.stats.years, label: t.why.stats.yearsLabel, desc: 'Decennia aan specialistische kennis in het bewerken van leder. Wij begrijpen de structuur en het karakter van elk type leer.' },
-    { icon: '♻️', value: '', label: 'Duurzaamheid', desc: 'Wij geven nieuw leven aan bestaande stukken. Reparatie boven vervanging — dat is de kern van onze filosofie.' },
-    { icon: '✂️', value: '', label: 'Ambachtelijk Vakmanschap', desc: 'Elke steek is met precisie gezet. Wij combineren traditionele technieken met moderne precisie.' },
+    { value: t.why.stats.years, label: t.why.stats.yearsLabel, desc: 'Decennia aan specialistische kennis in het bewerken van leder.' },
+    { value: '', label: 'Duurzaamheid', desc: 'Reparatie boven vervanging — dat is de kern van onze filosofie.' },
+    { value: '', label: 'Ambachtelijk Vakmanschap', desc: 'Traditionele technieken, moderne precisie. Elke steek met zorg gezet.' },
   ];
   return (
     <section className="section-cream py-24" ref={ref}>
@@ -61,7 +66,7 @@ function Pillars() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {pillars.map((p, i) => (
             <div key={i} className={`text-center ${isInView ? `animate-fade-in-up animate-delay-${(i + 1) * 100}` : 'opacity-0'}`}>
-              <div className="text-4xl mb-4">{p.icon}</div>
+              <div className="pillar-icon">{icons[i]}</div>
               {p.value && <div className="font-serif text-3xl font-bold text-brown-leather mb-1">{p.value}</div>}
               <h3 className="font-serif text-xl font-bold mb-3">{p.label}</h3>
               <p className="text-sm leading-relaxed max-w-xs mx-auto">{p.desc}</p>
@@ -83,15 +88,16 @@ function ExpertisePreview() {
     { img: img('/images/gallery-black.png'), title: 'Custom Couture', desc: 'Op maat gemaakte leren kleding uit de beste Europese leders.', price: 'Op aanvraag' },
   ];
   return (
-    <section className="py-24 bg-[#0a0a0a]" id="expertise" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#0a0a0a] grain-overlay" id="expertise" ref={ref}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14">
           <div>
-            <h2 className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-3 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Ons Vakmanschap</h2>
+            <span className={`label-luxury text-cognac mb-4 block ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>Ons Atelier</span>
+            <h2 className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-3 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Vakmanschap op Maat</h2>
             <p className={`text-warm-gray text-lg max-w-lg ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>{t.services.subtitle}</p>
           </div>
           <Link href="/diensten" className={`text-cognac hover:text-gold font-medium flex items-center gap-1 mt-4 md:mt-0 transition-colors ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>
-            Bekijk alle diensten <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            Ontdek alle diensten <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -101,12 +107,12 @@ function ExpertisePreview() {
                 <Image src={card.img} alt={card.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl font-bold text-[#1a1410] mb-2">{card.title}</h3>
-                <p className="text-sm text-[#5a4d3e] leading-relaxed mb-4">{card.desc}</p>
+                <h3 className="font-serif text-xl font-bold text-cream mb-2">{card.title}</h3>
+                <p className="text-sm text-warm-gray leading-relaxed mb-4">{card.desc}</p>
                 <div className="flex items-center justify-between">
-                  <span className="font-serif font-bold text-cognac text-lg">{card.price}</span>
-                  <Link href="/contact" className="px-5 py-2 rounded-full bg-black-deep text-cream text-xs font-semibold hover:bg-cognac transition-colors">
-                    Boek Nu
+                  <span className="text-xs text-warm-gray">{card.price}</span>
+                  <Link href="/diensten" className="text-cognac text-xs font-medium hover:text-gold transition-colors flex items-center gap-1">
+                    Meer informatie <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </Link>
                 </div>
               </div>
@@ -118,25 +124,30 @@ function ExpertisePreview() {
   );
 }
 
-/* ─── The Artisan's Journey (screenshot 3 process steps) ─── */
+/* ─── The Artisan's Experience — editorial narrative ─── */
 function ArtisanJourney() {
   const { ref, isInView } = useInView();
-  const steps = [
-    { num: '1', title: 'Intake', desc: 'Wij bekijken uw kledingstuk, bespreken uw wensen en geven een persoonlijk advies en offerte.' },
-    { num: '2', title: 'Atelier Vakwerk', desc: 'Onze meester-leerbewerker voert de reparatie of restyling uit met uiterste precisie en zorg.' },
-    { num: '3', title: 'Eindcontrole', desc: 'U past het resultaat. Pas als u 100% tevreden bent, is het werk compleet.' },
-  ];
   return (
-    <section className="section-cream py-24" ref={ref}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className={`font-serif text-3xl sm:text-4xl font-bold mb-4 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Het Traject van de Vakman</h2>
-        <p className={`text-[#5a4d3e] text-lg mb-16 ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>Van eerste consult tot de laatste steek — kwaliteit en een perfecte pasvorm gegarandeerd.</p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {steps.map((s, i) => (
-            <div key={i} className={`flex flex-col items-center ${isInView ? `animate-fade-in-up animate-delay-${(i + 2) * 100}` : 'opacity-0'}`}>
-              <div className={`step-circle ${i === 1 ? 'step-circle-active' : 'step-circle-outline'} mb-5`}>{s.num}</div>
-              <h3 className="font-serif text-xl font-bold mb-2">{s.title}</h3>
-              <p className="text-sm text-[#5a4d3e] leading-relaxed">{s.desc}</p>
+    <section className="py-24 bg-[#0a0a0a] grain-overlay" ref={ref}>
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className={`label-luxury text-cognac mb-4 block ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>Uw Ervaring</span>
+          <h2 className={`font-serif text-3xl sm:text-4xl font-bold text-cream mb-4 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Een Persoonlijk Traject</h2>
+          <p className={`text-warm-gray text-lg max-w-xl mx-auto ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>Geen haastwerk, geen lopende band. Elk stuk krijgt de volle aandacht die het verdient.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { img: img('/images/maurice-portrait.png'), title: 'Het Persoonlijk Consult', desc: 'U bespreekt uw wensen met Maurice in het atelier. Samen bepalen we de beste aanpak voor uw stuk.' },
+            { img: img('/images/hands-crafting.png'), title: 'Vakmanschap in het Atelier', desc: 'Met zorg en precisie wordt uw kledingstuk bewerkt. Alleen de beste materialen en technieken.' },
+            { img: img('/images/leather-restoration.png'), title: 'Uw Stuk, Herleefd', desc: 'Het eindresultaat wordt persoonlijk aan u gepresenteerd. Pas als u tevreden bent, is het werk compleet.' },
+          ].map((s, i) => (
+            <div key={i} className={`text-center ${isInView ? `animate-fade-in-up animate-delay-${(i + 2) * 100}` : 'opacity-0'}`}>
+              <div className="relative aspect-square rounded-2xl overflow-hidden mb-6">
+                <Image src={s.img} alt={s.title} fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 to-transparent" />
+              </div>
+              <h3 className="font-serif text-lg font-bold text-cream mb-2">{s.title}</h3>
+              <p className="text-sm text-warm-gray leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -150,7 +161,7 @@ function AboutPreview() {
   const { t } = useLanguage();
   const { ref, isInView } = useInView();
   return (
-    <section className="relative py-24 lg:py-32 bg-[#0a0a0a]" id="about-preview" ref={ref}>
+    <section className="relative py-24 lg:py-32 bg-[#0a0a0a] grain-overlay" id="about-preview" ref={ref}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className={`relative rounded-2xl overflow-hidden aspect-[3/4] ${isInView ? 'animate-slide-in-left' : 'opacity-0'}`}>
@@ -158,7 +169,7 @@ function AboutPreview() {
             <div className="absolute inset-0 bg-gradient-to-t from-black-deep/40 to-transparent" />
           </div>
           <div className={`${isInView ? 'animate-slide-in-right animate-delay-200' : 'opacity-0'}`}>
-            <span className="inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6">{t.about.badge}</span>
+            <span className="label-luxury inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac mb-6">{t.about.badge}</span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-2">Maurice Eduard:</h2>
             <p className="font-serif text-2xl sm:text-3xl text-cognac italic mb-8">De kunst van leder</p>
             <p className="text-warm-gray-light leading-relaxed mb-6">{t.about.bio[0]}</p>
@@ -206,25 +217,27 @@ function GalleryPreview() {
   );
 }
 
-/* ─── Testimonials ─── */
+/* ─── Testimonials — luxury trust signals ─── */
 function Testimonials() {
   const { t } = useLanguage();
   const { ref, isInView } = useInView();
   return (
     <section className="section-cream py-24" id="testimonials" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4">
-          <div className="flex justify-center gap-1 mb-4">{Array.from({ length: 5 }).map((_, i) => <span key={i} className="text-2xl text-[#D4A017]">★</span>)}</div>
+        <div className="text-center mb-14">
+          <span className={`label-luxury text-cognac mb-4 block ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>{t.testimonials.badge}</span>
           <h2 className={`font-serif text-3xl sm:text-4xl font-bold mb-3 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>{t.testimonials.title}</h2>
-          <p className={`text-[#5a4d3e] text-lg mb-14 ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>{t.testimonials.subtitle}</p>
+          <p className={`text-[#5a4d3e] text-base mb-6 ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>{t.testimonials.subtitle}</p>
+          <div className="flex justify-center gap-1">{Array.from({ length: 5 }).map((_, i) => <span key={i} className="text-lg text-[#D4A017]">★</span>)}</div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {t.testimonials.items.slice(0, 3).map((review, i) => (
-            <div key={i} className={`bg-white rounded-2xl p-8 shadow-sm ${isInView ? `animate-fade-in-up animate-delay-${(i + 2) * 100}` : 'opacity-0'}`}>
-              <p className="text-[#3a3228] leading-relaxed mb-6 italic font-serif">&ldquo;{review.text}&rdquo;</p>
-              <div className="flex items-center gap-3 pt-4 border-t border-cream-dark">
+            <div key={i} className={`relative bg-white/80 rounded-2xl p-8 ${isInView ? `animate-fade-in-up animate-delay-${(i + 2) * 100}` : 'opacity-0'}`}>
+              <span className="quote-mark">&ldquo;</span>
+              <p className="text-[#3a3228] leading-relaxed mb-6 italic font-serif pt-6">{review.text}</p>
+              <div className="flex items-center gap-3 pt-4 border-t border-[#e8e0d4]">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cognac to-gold flex items-center justify-center text-white font-bold text-sm">{review.name.charAt(0)}</div>
-                <div><p className="text-sm font-semibold text-[#1a1410]">{review.name}</p><p className="text-xs text-[#8B7D6B]">Google Review</p></div>
+                <p className="text-sm font-medium text-[#1a1410]">{review.name}</p>
               </div>
             </div>
           ))}
@@ -280,61 +293,24 @@ function FinalCTA() {
   );
 }
 
-/* ─── YouTube Showcase ─── */
+/* ─── YouTube — cinematic documentary style ─── */
 function YouTubeShowcase() {
   const { ref, isInView } = useInView();
   return (
-    <section className="py-24 bg-[#0a0a0a]" id="youtube" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#0a0a0a] grain-overlay" id="youtube" ref={ref}>
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className={`inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>YouTube</span>
-          <h2 className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-4 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Bekijk Ons Vakmanschap</h2>
-          <p className={`text-warm-gray text-lg max-w-2xl mx-auto ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>Volg Maurice op YouTube en ontdek hoe wij leren jassen transformeren — van reparatie tot complete redesign.</p>
+          <span className={`label-luxury text-cognac mb-4 block ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>Kijk Mee in het Atelier</span>
+          <h2 className={`font-serif text-3xl sm:text-4xl font-bold text-cream mb-4 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Vakmanschap op Video</h2>
+          <p className={`text-warm-gray max-w-xl mx-auto ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>Ontdek hoe wij leren jassen transformeren — van reparatie tot complete redesign.</p>
         </div>
-        <div className={`grid grid-cols-1 lg:grid-cols-5 gap-8 items-center ${isInView ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
-          <div className="lg:col-span-3 aspect-video rounded-2xl overflow-hidden border border-cognac/20 shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed?listType=user_uploads&list=MauriceVerlinden"
-              title="DrJacket — Maurice Verlinden YouTube"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            />
-          </div>
-          <div className="lg:col-span-2 flex flex-col gap-6">
-            <div className="glass rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <svg className="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                <div>
-                  <h4 className="font-serif text-lg font-bold text-cream">Maurice Verlinden</h4>
-                  <p className="text-xs text-warm-gray">@MauriceVerlinden</p>
-                </div>
-              </div>
-              <p className="text-warm-gray text-sm leading-relaxed mb-4">35+ jaar leer expertise op video. Van ritsvervanging tot complete revival — tutorials, voor-en-na transformaties, en het vakmanschap achter elke steek.</p>
-              <a
-                href="https://www.youtube.com/@MauriceVerlinden"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                Bekijk Kanaal
-              </a>
-            </div>
-            <div className="glass rounded-2xl p-6">
-              <h4 className="font-serif text-lg font-bold text-cream mb-3">Op Ons Kanaal</h4>
-              <ul className="space-y-3">
-                {['Rits vervanging — stap voor stap', 'Leren jas revival — voor en na', 'Custom couture — het maakproces'].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-warm-gray-light">
-                    <svg className="w-4 h-4 text-cognac shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <div className={`aspect-video rounded-2xl overflow-hidden border border-cognac/15 shadow-[0_8px_60px_rgba(0,0,0,0.5)] ${isInView ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed?listType=user_uploads&list=MauriceVerlinden" title="DrJacket — Maurice Verlinden" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" />
+        </div>
+        <div className="text-center mt-8">
+          <a href="https://www.youtube.com/@MauriceVerlinden" target="_blank" rel="noopener noreferrer" className="text-warm-gray hover:text-cognac text-sm transition-colors inline-flex items-center gap-2">
+            Meer video’s op YouTube <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+          </a>
         </div>
       </div>
     </section>
