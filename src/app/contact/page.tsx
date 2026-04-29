@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
+import { img } from '@/lib/basePath';
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -19,7 +20,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <Image src="/images/atelier-interior.png" alt="" fill className="object-cover" />
+        <Image src={img('/images/atelier-interior.png')} alt="" fill className="object-cover" />
         <div className="absolute inset-0 bg-black-deep/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <span className="inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6">{t.contact.badge}</span>

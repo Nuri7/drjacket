@@ -3,16 +3,17 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
+import { img } from '@/lib/basePath';
 
 const galleryItems = [
-  { src: '/images/before-after.png', category: 'before-after', title: 'Full Restoration' },
-  { src: '/images/gallery-cognac.png', category: 'custom', title: 'Cognac Biker' },
-  { src: '/images/gallery-black.png', category: 'custom', title: 'Classic Black' },
-  { src: '/images/gallery-burgundy.png', category: 'custom', title: 'Burgundy Racer' },
-  { src: '/images/craft-detail.png', category: 'repair', title: 'Zip Repair Detail' },
-  { src: '/images/hero-atelier.png', category: 'atelier', title: 'Atelier at Work' },
-  { src: '/images/atelier-interior.png', category: 'atelier', title: 'Workshop Interior' },
-  { src: '/images/leather-texture.png', category: 'materials', title: 'Premium Leather' },
+  { src: img('/images/before-after.png'), category: 'before-after', title: 'Full Restoration' },
+  { src: img('/images/gallery-cognac.png'), category: 'custom', title: 'Cognac Biker' },
+  { src: img('/images/gallery-black.png'), category: 'custom', title: 'Classic Black' },
+  { src: img('/images/gallery-burgundy.png'), category: 'custom', title: 'Burgundy Racer' },
+  { src: img('/images/craft-detail.png'), category: 'repair', title: 'Zip Repair Detail' },
+  { src: img('/images/hero-atelier.png'), category: 'atelier', title: 'Atelier at Work' },
+  { src: img('/images/atelier-interior.png'), category: 'atelier', title: 'Workshop Interior' },
+  { src: img('/images/leather-texture.png'), category: 'materials', title: 'Premium Leather' },
 ];
 
 const categories = ['all', 'before-after', 'custom', 'repair', 'atelier', 'materials'];
@@ -27,7 +28,7 @@ export default function GalleryPage() {
   return (
     <>
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <Image src="/images/gallery-cognac.png" alt="" fill className="object-cover" />
+        <Image src={img('/images/gallery-cognac.png')} alt="" fill className="object-cover" />
         <div className="absolute inset-0 bg-black-deep/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <span className="inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6">{t.gallery.badge}</span>

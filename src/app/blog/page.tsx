@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useInView } from '@/lib/useInView';
+import { img } from '@/lib/basePath';
 
-const blogImages = ['/images/craft-detail.png', '/images/gallery-cognac.png', '/images/before-after.png'];
+const blogImages = [img('/images/craft-detail.png'), img('/images/gallery-cognac.png'), img('/images/before-after.png')];
 
 export default function BlogPage() {
   const { t } = useLanguage();
@@ -13,7 +14,7 @@ export default function BlogPage() {
   return (
     <>
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <Image src="/images/leather-texture.png" alt="" fill className="object-cover" />
+        <Image src={img('/images/leather-texture.png')} alt="" fill className="object-cover" />
         <div className="absolute inset-0 bg-black-deep/85" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <span className="inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6">{t.blog.badge}</span>

@@ -150,7 +150,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/images/leather-texture.png');
+  background-image: var(--leather-bg-url);
   background-size: cover;
   opacity: 0.04;
   pointer-events: none;

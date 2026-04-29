@@ -4,12 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useInView } from '@/lib/useInView';
+import { img } from '@/lib/basePath';
 
 function Hero() {
   const { t } = useLanguage();
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden" id="hero">
-      <Image src="/images/hero-atelier.png" alt="DrJacket Atelier" fill className="object-cover" priority quality={90} />
+      <Image src={img('/images/hero-atelier.png')} alt="DrJacket Atelier" fill className="object-cover" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-b from-black-deep/70 via-black-deep/50 to-black-deep" />
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <p className="text-shimmer font-serif text-sm sm:text-base tracking-[0.3em] uppercase mb-6 animate-fade-in">
@@ -58,7 +59,7 @@ function WhySection() {
             <p className="text-warm-gray-light text-lg leading-relaxed">{t.why.description}</p>
           </div>
           <div className={`relative rounded-2xl overflow-hidden aspect-[4/3] ${isInView ? 'animate-slide-in-right animate-delay-400' : 'opacity-0'}`}>
-            <Image src="/images/craft-detail.png" alt="Leather craftsmanship detail" fill className="object-cover" />
+            <Image src={img('/images/craft-detail.png')} alt="Leather craftsmanship detail" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black-deep/60 to-transparent" />
           </div>
         </div>
@@ -129,7 +130,7 @@ function GalleryPreview() {
         </div>
         <div className={`max-w-4xl mx-auto ${isInView ? 'animate-scale-in animate-delay-300' : 'opacity-0'}`}>
           <div className="relative rounded-2xl overflow-hidden aspect-[16/9] group">
-            <Image src="/images/before-after.png" alt="Before and after leather jacket restoration" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+            <Image src={img('/images/before-after.png')} alt="Before and after leather jacket restoration" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-black-deep/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
               <div className="flex gap-4">
@@ -140,7 +141,7 @@ function GalleryPreview() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          {['/images/gallery-cognac.png', '/images/gallery-black.png', '/images/gallery-burgundy.png'].map((src, i) => (
+          {[img('/images/gallery-cognac.png'), img('/images/gallery-black.png'), img('/images/gallery-burgundy.png')].map((src, i) => (
             <div key={i} className={`relative rounded-2xl overflow-hidden aspect-square group ${isInView ? `animate-fade-in-up animate-delay-${(i + 4) * 100}` : 'opacity-0'}`}>
               <Image src={src} alt={`Gallery piece ${i + 1}`} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black-deep/20 group-hover:bg-transparent transition-colors duration-500" />
@@ -165,7 +166,7 @@ function AboutPreview() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className={`relative rounded-2xl overflow-hidden aspect-[3/4] ${isInView ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <Image src="/images/atelier-interior.png" alt="DrJacket Atelier Interior" fill className="object-cover" />
+            <Image src={img('/images/atelier-interior.png')} alt="DrJacket Atelier Interior" fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0a0a]/30" />
           </div>
           <div className={`${isInView ? 'animate-slide-in-right animate-delay-200' : 'opacity-0'}`}>
@@ -221,7 +222,7 @@ function FinalCTA() {
   const { ref, isInView } = useInView();
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden" id="final-cta" ref={ref}>
-      <Image src="/images/craft-detail.png" alt="" fill className="object-cover" />
+      <Image src={img('/images/craft-detail.png')} alt="" fill className="object-cover" />
       <div className="absolute inset-0 bg-black-deep/85" />
       <div className={`relative z-10 max-w-3xl mx-auto px-4 text-center ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
         <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-6">{t.cta.title}</h2>

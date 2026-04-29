@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useInView } from '@/lib/useInView';
+import { img } from '@/lib/basePath';
 
 export default function AboutPage() {
   const { t } = useLanguage();
@@ -12,7 +13,7 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <Image src="/images/atelier-interior.png" alt="" fill className="object-cover" />
+        <Image src={img('/images/atelier-interior.png')} alt="" fill className="object-cover" />
         <div className="absolute inset-0 bg-black-deep/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <span className="inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6 animate-fade-in">{t.about.badge}</span>
@@ -29,7 +30,7 @@ export default function AboutPage() {
             <div className={`lg:col-span-2 ${isInView ? 'animate-slide-in-left' : 'opacity-0'}`}>
               <div className="sticky top-28">
                 <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-                  <Image src="/images/hero-atelier.png" alt="Maurice Eduard Verlinden" fill className="object-cover" />
+                  <Image src={img('/images/hero-atelier.png')} alt="Maurice Eduard Verlinden" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black-deep/50 to-transparent" />
                 </div>
                 <div className="mt-6 glass rounded-2xl p-6">
