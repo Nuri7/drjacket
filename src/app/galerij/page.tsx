@@ -10,10 +10,12 @@ const galleryItems = [
   { src: img('/images/gallery-cognac.png'), category: 'custom', title: 'Cognac Biker' },
   { src: img('/images/gallery-black.png'), category: 'custom', title: 'Classic Black' },
   { src: img('/images/gallery-burgundy.png'), category: 'custom', title: 'Burgundy Racer' },
+  { src: img('/images/hands-crafting.png'), category: 'repair', title: 'Handmatig Herstel' },
   { src: img('/images/craft-detail.png'), category: 'repair', title: 'Zip Repair Detail' },
-  { src: img('/images/hero-atelier.png'), category: 'atelier', title: 'Atelier at Work' },
+  { src: img('/images/maurice-portrait.png'), category: 'atelier', title: 'Maurice aan het Werk' },
+  { src: img('/images/atelier-cinematic.png'), category: 'atelier', title: 'Het Atelier' },
   { src: img('/images/atelier-interior.png'), category: 'atelier', title: 'Workshop Interior' },
-  { src: img('/images/leather-texture.png'), category: 'materials', title: 'Premium Leather' },
+  { src: img('/images/leather-texture.png'), category: 'materials', title: 'Premium Leder' },
 ];
 
 const categories = ['all', 'before-after', 'custom', 'repair', 'atelier', 'materials'];

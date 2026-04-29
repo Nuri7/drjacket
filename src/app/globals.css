@@ -194,6 +194,60 @@ body {
   margin: 0 auto;
 }
 
+/* Cream light section (like screenshots) */
+.section-cream {
+  background-color: #F8F4EC;
+  color: #2C1F16;
+}
+.section-cream h2, .section-cream h3, .section-cream h4 {
+  color: #1a1410;
+}
+.section-cream p {
+  color: #5a4d3e;
+}
+
+/* Process step circle */
+.step-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.step-circle-active {
+  background: linear-gradient(135deg, var(--color-cognac), var(--color-gold));
+  color: #111;
+}
+.step-circle-outline {
+  border: 2px solid var(--color-cognac);
+  color: var(--color-cognac);
+  background: transparent;
+}
+
+/* Service card with image (screenshot-inspired) */
+.service-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+/* Mepretap banner */
+.mepretap-banner {
+  background: linear-gradient(135deg, #2C1F16 0%, #1a1410 100%);
+  border: 1px solid rgba(195, 138, 79, 0.3);
+}
+
 /* Input styles */
 input, textarea, select {
   font-family: var(--font-sans);
@@ -204,3 +258,4 @@ input:focus, textarea:focus, select:focus {
   border-color: var(--color-cognac) !important;
   box-shadow: 0 0 0 2px rgba(195, 138, 79, 0.2);
 }
+
