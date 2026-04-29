@@ -72,6 +72,16 @@ export default function Header() {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-cognac transition-all duration-300 group-hover:w-3/4" />
               </Link>
             ))}
+            <span className="w-[1px] h-4 bg-cream/15 mx-1" />
+            <a
+              href="https://www.mepretaporter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-2 text-sm text-cognac/80 hover:text-gold transition-colors duration-300 relative group flex items-center gap-1"
+            >
+              Mepretaporter
+              <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+            </a>
           </nav>
 
           {/* Right Actions */}
@@ -170,6 +180,15 @@ export default function Header() {
               {t.nav.callNow}
             </a>
           </div>
+          <a
+            href="https://www.mepretaporter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 text-sm text-cognac hover:text-gold transition-colors flex items-center gap-1.5"
+          >
+            Mepretaporter
+            <svg className="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+          </a>
           <button
             onClick={toggleLocale}
             className="mt-4 px-4 py-2 rounded-full border border-cream/20 text-cream/60 text-sm"

@@ -78,8 +78,8 @@ function ExpertisePreview() {
   const { t } = useLanguage();
   const { ref, isInView } = useInView();
   const cards = [
-    { img: img('/images/before-after.png'), title: 'Restauratie & Reparatie', desc: 'Ritsen, scheuren, voering — vakkundig hersteld tot originele staat.', price: 'Vanaf €95' },
-    { img: img('/images/gallery-cognac.png'), title: 'Restyling & Fit', desc: 'Geef uw jas een moderne pasvorm. Op maat gemaakt voor uw lichaam.', price: '€295' },
+    { img: img('/images/zipper-repair.png'), title: 'Restauratie & Reparatie', desc: 'Ritsen, scheuren, voering — vakkundig hersteld tot originele staat.', price: 'Vanaf €95' },
+    { img: img('/images/leather-restoration.png'), title: 'Restyling & Fit', desc: 'Geef uw jas een moderne pasvorm. Op maat gemaakt voor uw lichaam.', price: '€295' },
     { img: img('/images/gallery-black.png'), title: 'Custom Couture', desc: 'Op maat gemaakte leren kleding uit de beste Europese leders.', price: 'Op aanvraag' },
   ];
   return (
@@ -280,6 +280,67 @@ function FinalCTA() {
   );
 }
 
+/* ─── YouTube Showcase ─── */
+function YouTubeShowcase() {
+  const { ref, isInView } = useInView();
+  return (
+    <section className="py-24 bg-[#0a0a0a]" id="youtube" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className={`inline-block px-4 py-1.5 rounded-full border border-cognac/30 text-cognac text-xs tracking-[0.2em] uppercase mb-6 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>YouTube</span>
+          <h2 className={`font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cream mb-4 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>Bekijk Ons Vakmanschap</h2>
+          <p className={`text-warm-gray text-lg max-w-2xl mx-auto ${isInView ? 'animate-fade-in-up animate-delay-100' : 'opacity-0'}`}>Volg Maurice op YouTube en ontdek hoe wij leren jassen transformeren — van reparatie tot complete redesign.</p>
+        </div>
+        <div className={`grid grid-cols-1 lg:grid-cols-5 gap-8 items-center ${isInView ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
+          <div className="lg:col-span-3 aspect-video rounded-2xl overflow-hidden border border-cognac/20 shadow-[0_8px_40px_rgba(0,0,0,0.4)]">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed?listType=user_uploads&list=MauriceVerlinden"
+              title="DrJacket — Maurice Verlinden YouTube"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            <div className="glass rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <svg className="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                <div>
+                  <h4 className="font-serif text-lg font-bold text-cream">Maurice Verlinden</h4>
+                  <p className="text-xs text-warm-gray">@MauriceVerlinden</p>
+                </div>
+              </div>
+              <p className="text-warm-gray text-sm leading-relaxed mb-4">35+ jaar leer expertise op video. Van ritsvervanging tot complete revival — tutorials, voor-en-na transformaties, en het vakmanschap achter elke steek.</p>
+              <a
+                href="https://www.youtube.com/@MauriceVerlinden"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-red-600 text-white text-sm font-semibold hover:bg-red-700 transition-colors"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                Bekijk Kanaal
+              </a>
+            </div>
+            <div className="glass rounded-2xl p-6">
+              <h4 className="font-serif text-lg font-bold text-cream mb-3">Op Ons Kanaal</h4>
+              <ul className="space-y-3">
+                {['Rits vervanging — stap voor stap', 'Leren jas revival — voor en na', 'Custom couture — het maakproces'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-warm-gray-light">
+                    <svg className="w-4 h-4 text-cognac shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ─── Page ─── */
 export default function HomePage() {
   return (
@@ -289,6 +350,7 @@ export default function HomePage() {
       <ExpertisePreview />
       <ArtisanJourney />
       <AboutPreview />
+      <YouTubeShowcase />
       <GalleryPreview />
       <Testimonials />
       <MepretapBanner />

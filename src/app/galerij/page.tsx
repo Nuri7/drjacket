@@ -6,12 +6,14 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { img } from '@/lib/basePath';
 
 const galleryItems = [
+  { src: img('/images/leather-restoration.png'), category: 'before-after', title: 'Voor & Na Revival' },
   { src: img('/images/before-after.png'), category: 'before-after', title: 'Full Restoration' },
   { src: img('/images/gallery-cognac.png'), category: 'custom', title: 'Cognac Biker' },
   { src: img('/images/gallery-black.png'), category: 'custom', title: 'Classic Black' },
   { src: img('/images/gallery-burgundy.png'), category: 'custom', title: 'Burgundy Racer' },
+  { src: img('/images/zipper-repair.png'), category: 'repair', title: 'Rits Vervanging' },
   { src: img('/images/hands-crafting.png'), category: 'repair', title: 'Handmatig Herstel' },
-  { src: img('/images/craft-detail.png'), category: 'repair', title: 'Zip Repair Detail' },
+  { src: img('/images/craft-detail.png'), category: 'repair', title: 'Detail Werk' },
   { src: img('/images/maurice-portrait.png'), category: 'atelier', title: 'Maurice aan het Werk' },
   { src: img('/images/atelier-cinematic.png'), category: 'atelier', title: 'Het Atelier' },
   { src: img('/images/atelier-interior.png'), category: 'atelier', title: 'Workshop Interior' },

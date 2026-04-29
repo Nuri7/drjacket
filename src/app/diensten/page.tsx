@@ -33,7 +33,7 @@ export default function DienstenPage() {
                 {'premium' in service && service.premium && <span className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-gradient-to-r from-gold to-cognac text-black-deep text-[10px] font-bold uppercase tracking-wider">Premium</span>}
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
-                    src={img(i === 0 ? '/images/craft-detail.png' : i === 1 ? '/images/before-after.png' : i === 2 ? '/images/gallery-cognac.png' : '/images/gallery-black.png')}
+                    src={img(i === 0 ? '/images/zipper-repair.png' : i === 1 ? '/images/hands-crafting.png' : i === 2 ? '/images/leather-restoration.png' : '/images/gallery-black.png')}
                     alt={service.title} fill className="object-cover"
                   />
                 </div>
