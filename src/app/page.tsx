@@ -11,7 +11,7 @@ function Hero() {
   const { t } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" id="hero">
-      <Image src={img('/images/maurice-portrait.png')} alt="Maurice Eduard Verlinden in his leather atelier" fill className="object-cover object-top" priority quality={90} />
+      <Image src={img('/images/maurice-hero.png')} alt="Maurice Eduard Verlinden in his leather atelier" fill className="object-cover object-center" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-r from-black-deep/90 via-black-deep/60 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-black-deep via-transparent to-black-deep/30" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-32">
